@@ -1,0 +1,12 @@
+
+label{
+  font-weight:bolder;
+}
+
+fieldset{
+  margin-bottom:1em;
+}
+
+input.long-input {
+  width: 100%;
+}

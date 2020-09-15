@@ -1,0 +1,46 @@
+Get an html testcase to use boomerang.js easily
+CSRF
+need to use requestbuilder -need to do research
+requestbuilder is part of Google web toolkit.
+
+
+https://levelup.gitconnected.com/all-possible-ways-of-making-an-api-call-in-plain-javascript-c0dee3c11b8b
+
+requestbuilder with jquery
+http://www.zackgrossbart.com/hackito/gwt-rest/
+
+Need to check that is there any sessionID, requestID maintained in the services
+Check what all parameters are passed in xhr.open
+
+Randomness:
+Randomness can be handled using  window.crypto.random() testcase already done
+
+Weak Cryptographic Hash :
+
+need to replace MD5 with either SHA1 or some other crypto hash algorithm-- confirm once which algo they want to use 
+also decide which crypto library to use 
+
+crypto.hash example:
+
+
+
+
+Was it working earlier, if yes lets see the js file where it works
+The event fires up when boomerang loads, check that  does it actually loads
+If its not working since starting then it may be a  bug
+Lets isolate the issue if its not working
+
+Example link:
+From Mouni L to Everyone:  10:10 PM
+https://gist.github.com/cvazac/34ce10b4b423b3e60c8f
+
+
+From Mouni L to Everyone:  10:17 PM
+Check this out. This is how I tested.
+ 
+https://developers.google.com/web/updates/2018/01/devtools#overrides
+
+boomerang.js
+guid.js
+navtiming.js
+wbgrt.js

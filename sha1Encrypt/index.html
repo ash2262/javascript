@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  
+  <script src="crypto-js.js"></script>
+  
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <h1>CryptoJS</h1>
+  <h4>Two-way AES encryption example using a single key and initialization vector.</h4>
+
+  <fieldset>
+    <div>
+      <label>Plain Text</label>
+      <input class="long-input" id="textInput" type="text" />
+    </div>
+    <div>
+      <label>Password</label>
+      <input id="passwordInput" type="text" />
+      <label>SHA1 Hash:</label><span id="sha1Hash"></span>
+    </div>
+    <button onclick="SHA1('12345678')">Test</button>
+
+  </fieldset>
+
+  <div>
+    <label>Key:</label> <span id="key">?</span>
+  </div>
+  <div>
+    <label>Cipher Text:</label> <span id="cipherText">?</span>
+  </div>
+  <div>
+    <label>Decrypted Cipher Text:</label> <span id="decrypted">?</span>
+  </div>
+</body>
+
+</html>
