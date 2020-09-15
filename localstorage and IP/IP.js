@@ -1,9 +1,16 @@
 var ip = null;
-console.log("localstorageIP: "+ip);
+
 async function fetchIp(){
 	try {
-		ip = localStorage.getItem("IP");    //fetch IP from localstorage
-		if(ip==null){ 						// if localstorage value is null, fetch from API
+		ip = localStorage.getItem("IP"); //fetch IP from localstorage
+		console.log("localstorageIP: "+ip);
+		IPStoreDate=localStorage.getItem("IPStoreDate");
+		IPStoreDate=new Date(IPStoreDate); 
+		var TodayDate=new Date(Date.now()); 		
+		console.log("IPStoreDate: "+IPStoreDate);
+		//var YesterdayDate=new Date(Date.now() - 864e5*2); //864e5=1000*60*60*24 or 86400000 or 864e5
+		var DateDiff=diff_hours(TodayDate,IPStoreDate);
+		if(ip==null||DateDiff>24){ 						// if localstorage value is null, fetch from API
 			console.log("TEst iip:"+ip);
 			ip = await fetch('https://mocktarget.apigee.net/ip')
 			.then(res => res.json())
@@ -11,6 +18,7 @@ async function fetchIp(){
 			.then(res => res.split(",")[0]);
 			
 			localStorage.setItem("IP",ip); // set IP in localstorage
+			localStorage.setItem("IPStoreDate",TodayDate);
 		}
 		console.log("ip-address:"+ip);
 	return ip;
@@ -19,3 +27,14 @@ async function fetchIp(){
 		console.log(error);
 	}
 };
+
+function diff_hours(dt2, dt1) 
+ {
+  var dt2time=new Date(Date.parse(dt2));
+  var dt1time=new Date(Date.parse(dt1));
+  
+  var diff =(dt2time.getTime() - dt1time.getTime()) / 1000;
+  diff /= (60 * 60);
+  return Math.abs(Math.round(diff));
+  
+ }
